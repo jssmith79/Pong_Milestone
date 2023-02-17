@@ -7,7 +7,7 @@
 body {
     height: 100vh;
     width: 100vw;
-    background-color: blue;
+    background-color: rgb(34, 34, 206);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,3 +89,8 @@ body {
     margin: 30px auto auto auto;
 }
 
+footer:hover {
+    background-color: aqua;
+    color: white;
+    text-align: center;    
+}
