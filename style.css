@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* adding a comment to update the commit*/
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board {
+    height: 85vh;
+    width: 80vw;
+    border-radius: 14px;
+}
+
+.ball {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    position: fixed;   
+    top: calc(50% - 15px);
+    left: calc(50% - 15px); 
+}
+
+.paddle {
+    height: 100px;
+    width: 18px;
+    border-radius: 50%;
+    position: fixed;
+}
+
+.paddle_1 {
+    top: calc(7.5vh + 55px);
+    left: calc(10vw + 30px);
+    box-sizing: inset 0 0 18 #fff,
+        inset -6px 0 18px #f3bad6,
+        inset 6px 0 18px #0ff,
+        inset -6px 0 30px #f3bad6,
+        inset 6px 0 30px #0ff,
+        0 0 18px #fff, 4px 0 18px #f3bad6,
+        -4px 0 18px #0ff;
+}
