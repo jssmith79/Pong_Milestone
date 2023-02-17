@@ -1,0 +1,16 @@
+h1 {
+    text-align: center;
+    text-shadow: 5px;
+}
+
+body {
+    background-color: aquamarine;
+    font-size: large;
+    text-align:justify;
+    list-style: none;
+}
+
+
+footer {
+    text-align: center;
+}
