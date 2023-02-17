@@ -35,6 +35,8 @@ body {
     position: fixed;
 }
 
+/* paddle 2 controller */
+
 .paddle_1 {
     top: calc(7.5vh + 55px);
     left: calc(10vw + 30px);
@@ -46,3 +48,44 @@ body {
         0 0 18px #fff, 4px 0 18px #f3bad6,
         -4px 0 18px #0ff;
 }
+/* paddle 2 controller */
+
+.paddle_2 {
+    top: calc(85vh + 7.5vh - 110px - 55px);
+    right: calc(10vw + 30px);
+    box-sizing: inset 0 0 18 #fff,
+        inset 6px 0 18px #f3bad6,
+        inset -6px 0 18px #0ff,
+        inset 6px 0 30px #f3bad6,
+        inset -6px 0 30px #0ff,
+        0 0 18px #fff, -4px 0 18px #f3bad6,
+        4px 0 18px #0ff;
+}
+
+.player_1_score {
+    height: 50px;
+    width: 50px;
+    color: chartreuse;
+    position: fixed;
+    left: 30vw;
+    margin-top: 30px;
+}
+  
+.player_2_score {
+    height: 50px;
+    width: 50px;
+    color: chartreuse;
+    position: fixed;
+    left: 70vw;
+    margin-top: 30px;
+}
+  
+.message {
+    position: fixed;
+    height: 10vh;
+    width: 30vw;
+    color: #c9cbff;
+    left: 38vw;
+    margin: 30px auto auto auto;
+}
+
