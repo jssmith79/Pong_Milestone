@@ -12,7 +12,7 @@ body {
     justify-content: center;
     align-items: center;
 }
-
+/*board is slightly smaller than the body to allow space for paddles */
 .board {
     height: 85vh;
     width: 80vw;
@@ -52,16 +52,17 @@ body {
 .paddle {
     height: 100px;
     width: 18px;
-    border-radius: 50%;
     position: fixed;
+    border-radius: 5%;
+    background-color: azure;
 }
 
-/* paddle 2 controller */
+/* paddle 1 controller */
 
-.paddle_1 {
+#one {
     top: calc(7.5vh + 55px);
     left: calc(10vw + 30px);
-    box-sizing: inset 0 0 18 #fff,
+    box-shadow: inset 0 0 18 #fff,
         inset -6px 0 18px #f3bad6,
         inset 6px 0 18px #0ff,
         inset -6px 0 30px #f3bad6,
@@ -71,10 +72,10 @@ body {
 }
 /* paddle 2 controller */
 
-.paddle_2 {
+#two {
     top: calc(85vh + 7.5vh - 110px - 55px);
     right: calc(10vw + 30px);
-    box-sizing: inset 0 0 18 #fff,
+    box-shadow: inset 0 0 18 #fff,
         inset 6px 0 18px #f3bad6,
         inset -6px 0 18px #0ff,
         inset 6px 0 30px #f3bad6,
@@ -110,8 +111,11 @@ body {
     margin: 30px auto auto auto;
 }
 
-footer:hover {
+.footer {
     background-color: aqua;
     color: white;
-    text-align: center;    
+    text-align: center;  
+    position:absolute;
+    bottom: 0;
+    width: 100;
 }

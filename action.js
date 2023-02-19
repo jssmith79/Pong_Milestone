@@ -1,8 +1,8 @@
 // defines all the variables that are used for the game
 
 let gameState = 'start';
-let paddle_1 = document.querySelector('.paddle_1');
-let paddle_2 = document.querySelector('.paddle_2');
+let paddle_1 = document.querySelector('#one');
+let paddle_2 = document.querySelector('#two');
 let board = document.querySelector('.board');
 let initial_ball = document.querySelector('.ball');
 let ball = document.querySelector('.ball');
@@ -14,8 +14,7 @@ let paddle_2_coord = paddle_2.getBoundingClientRect();
 let initial_ball_coord = ball.getBoundingClientRect();
 let ball_coord = initial_ball_coord;
 let board_coord = board.getBoundingClientRect();
-let paddle_common =
-	document.querySelector('.paddle').getBoundingClientRect();
+let paddle_common = document.querySelector('.paddle').getBoundingClientRect();
 
 let dx = Math.floor(Math.random() * 4) + 3;
 let dy = Math.floor(Math.random() * 4) + 3;
@@ -39,6 +38,8 @@ if (e.key == 'Enter') {
 	});
 	}
 }
+
+//when game is started in play mode, event listeners to operate the conrollers
 if (gameState == 'play') {
 	if (e.key == 'w') {
 	paddle_1.style.top =
