@@ -51,7 +51,7 @@ body {
 }
 
 .paddle {
-    height: 100px;
+    height: 150px;
     width: 18px;
     position: fixed;
     border-radius: 5%;
