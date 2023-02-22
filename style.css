@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    border-color: 5px solid navy;
 }
 /* adding a comment to update the commit and more tests*/
 body {
