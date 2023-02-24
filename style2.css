@@ -1,22 +1,33 @@
+@font-face {
+    font-family: "Arcade";
+    src: url(./arcade/ARCADE.TTF);
+}
+
 h1, h3 {
     text-align: center;
     text-shadow: 5px;
+    font-family: "Arcade";
+    font-size: 2em;
 }
 
 /*adding another test comment to get the git repo working*/
 
 body {
-    background-color: tan;
+    background-color: #0496ff;
     font-size: large;
     text-align:justify;
-    color: brown;
+    color: #00487c;
 }
 
 ul {
     list-style: none;
-    margin-left: 30em;
+    margin-left: 10em;
+    font-family: "Arcade";
+    font-size: 2em;
 }
 
 footer {
     text-align: center;
+    font-family: "Arcade";
+    font-size: 2em;
 }
