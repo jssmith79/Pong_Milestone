@@ -7,7 +7,7 @@
 body {
     height: 100vh;
     width: 100vw;
-    background-color: rgb(34, 34, 206);
+    background-color: #0496ff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +17,8 @@ body {
     height: 85vh;
     width: 80vw;
     border-radius: 14px;
-    border: 3px inset navy;
+    border: 3px inset #3e6680;
+    background-color: #00487C;
 }
 
 .ball {
