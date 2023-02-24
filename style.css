@@ -22,9 +22,10 @@ body {
     height: 85vh;
     width: 80vw;
     border-radius: 14px;
-    border: 3px inset #3e6680;
+    border: 10px ridge #3e6680;
     background-color: #00487C;
     font-family: "Arcade";
+    font-size: 2em;
 }
 
 .ball {
@@ -127,7 +128,7 @@ body {
     left: 700px;
     width: 200px;
     font-family: "Arcade";
-    font-size: 2em;
+    font-size: 1em;
     
 }
 

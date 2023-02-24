@@ -3,7 +3,14 @@
     src: url(./arcade/ARCADE.TTF);
 }
 
-h1, h3 {
+h1 {
+    text-align: center;
+    text-shadow: 5px;
+    font-family: "Arcade";
+    font-size: 3em;
+}
+
+h3 {
     text-align: center;
     text-shadow: 5px;
     font-family: "Arcade";
