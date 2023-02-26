@@ -5,6 +5,8 @@
     src: url(./arcade/ARCADE.TTF);
 }
 
+/* regular styling CSS */
+
 h1 {
     text-align: center;
     text-shadow: 5px;
@@ -18,8 +20,6 @@ h3 {
     font-family: "Arcade";
     font-size: 2em;
 }
-
-/*adding another test comment to get the git repo working*/
 
 body {
     background-color: #0496ff;

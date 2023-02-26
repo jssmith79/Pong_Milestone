@@ -168,11 +168,11 @@ function scoring(player1, player2){
 
 function determineWinner(player1, player2){
 	let isWinner = false; 
-	if (player1 == 2) { 
+	if (player1 == 10) { 
 		message.innerHTML = 'Player 1 Wins!';
 		gameState = 'start';
 		isWinner = true;
-	} else if (player2 == 2) {
+	} else if (player2 == 10) {
 		message.innerHTML = 'Player 2 Wins!';
 		gameState = 'start';
 		isWinner = true;
