@@ -1,4 +1,4 @@
-// defines all the variables that are used for the game
+// all the variables that are used for the game
 
 let gameState = 'start';
 let paddle_1 = document.querySelector('#one');
@@ -21,6 +21,15 @@ let dy = Math.floor(Math.random() * 4) + 3;
 let dxd = Math.floor(Math.random() * 2);
 let dyd = Math.floor(Math.random() * 2);
 
+var player1 = 0
+var player2 = 0
+
+//initial location of the ball
+
+ball_coord = initial_ball_coord;
+ball.style = initial_ball.style;
+message.innerHTML = 'Press Enter to Play Pong';
+message.style.left = 38 + 'vw';
 
 // defines all the the game status and event listeners for the buttons
 document.addEventListener('keydown', (e) => {
@@ -29,6 +38,8 @@ if (e.key == 'Enter') {
 	if (gameState == 'play') {
 	message.innerHTML = 'Game Started';
 	message.style.left = 42 + 'vw';
+	console.log(player1);
+	console.log(player2);
 	requestAnimationFrame(() => {
 		dx = Math.floor(Math.random() * 4) + 3;
 		dy = Math.floor(Math.random() * 4) + 3;
@@ -79,57 +90,100 @@ if (gameState == 'play') {
 // defines the amimation and motion of the ball
 
 function moveBall(dx, dy, dxd, dyd) {
-if (ball_coord.top <= board_coord.top) {
-	dyd = 1;
-}
-if (ball_coord.bottom >= board_coord.bottom) {
-	dyd = 0;
-}
-if (
-	ball_coord.left <= paddle_1_coord.right &&
-	ball_coord.top >= paddle_1_coord.top &&
-	ball_coord.bottom <= paddle_1_coord.bottom
-) {
-	dxd = 1;
-	dx = Math.floor(Math.random() * 4) + 3;
-	dy = Math.floor(Math.random() * 4) + 3;
-}
-if (
-	ball_coord.right >= paddle_2_coord.left &&
-	ball_coord.top >= paddle_2_coord.top &&
-	ball_coord.bottom <= paddle_2_coord.bottom
-) {
-	dxd = 0;
-	dx = Math.floor(Math.random() * 4) + 3;
-	dy = Math.floor(Math.random() * 4) + 3;
-}
-
-//sets up the scoring of the game 
-
-if (
-	ball_coord.left <= board_coord.left ||
-	ball_coord.right >= board_coord.right
-) {
-	if (ball_coord.left <= board_coord.left) {
-	score_2.innerHTML = + score_2.innerHTML + 1;
-	} else {
-	score_1.innerHTML = + score_1.innerHTML + 1;
+	if (ball_coord.top <= board_coord.top) {
+		dyd = 1;
 	}
-	gameState = 'start';
+	if (ball_coord.bottom >= board_coord.bottom) {
+		dyd = 0;
+	}
+	if (
+		ball_coord.left <= paddle_1_coord.right &&
+		ball_coord.top >= paddle_1_coord.top &&
+		ball_coord.bottom <= paddle_1_coord.bottom
+	) {
+		dxd = 1;
+		dx = Math.floor(Math.random() * 4) + 3;
+		dy = Math.floor(Math.random() * 4) + 3;
+	}
+	if (
+		ball_coord.right >= paddle_2_coord.left &&
+		ball_coord.top >= paddle_2_coord.top &&
+		ball_coord.bottom <= paddle_2_coord.bottom
+	) {
+		dxd = 0;
+		dx = Math.floor(Math.random() * 4) + 3;
+		dy = Math.floor(Math.random() * 4) + 3;
+	}
 
-    //sets up the initial location of the ball
+	let result = scoring(player1, player2)
+
+	if (
+		result[0] == true
+	)	{ 
+		gameState = 'start'
+		ball_coord = initial_ball_coord;
+		player1 = result[1];
+		player2 = result[2];
+	
+		if ( 
+		determineWinner(player1, player2) == true 
+		)	{
+			player1 = 0;
+			player2 = 0;
+			score_1.innerHTML = player1
+			score_2.innerHTML = player2
+		}
+		return;
+	} 
 
 
-	ball_coord = initial_ball_coord;
-	ball.style = initial_ball.style;
-	message.innerHTML = 'Press Enter to Play Pong';
-	message.style.left = 38 + 'vw';
-	return;
+	ball.style.top = ball_coord.top + dy * (dyd == 0 ? -1 : 1) + 'px';
+	ball.style.left = ball_coord.left + dx * (dxd == 0 ? -1 : 1) + 'px';
+	ball_coord = ball.getBoundingClientRect();
+	requestAnimationFrame(() => {
+		moveBall(dx, dy, dxd, dyd);
+	});
 }
-ball.style.top = ball_coord.top + dy * (dyd == 0 ? -1 : 1) + 'px';
-ball.style.left = ball_coord.left + dx * (dxd == 0 ? -1 : 1) + 'px';
-ball_coord = ball.getBoundingClientRect();
-requestAnimationFrame(() => {
-	moveBall(dx, dy, dxd, dyd);
-});
+//scoring of the game -- separate out the code below to separate scoring and deciding the winner
+
+
+function scoring(player1, player2){
+	let myTurnPoint = false;
+	if (
+		ball_coord.left <= board_coord.left ||
+		ball_coord.right >= board_coord.right
+	)  {
+		if (ball_coord.left <= board_coord.left) {
+			player2 += 1;
+			score_2.innerHTML = player2
+		} else {
+			player1 += 1;
+			score_1.innerHTML = player1
+		}
+		myTurnPoint = true;
+	} 
+	return [myTurnPoint, player1, player2];
 }
+	// check if score_1 or score_2 is equal to 10 points
+
+function determineWinner(player1, player2){
+	let isWinner = false; 
+	if (player1 == 2) { 
+		message.innerHTML = 'Player 1 Wins!';
+		gameState = 'start';
+		isWinner = true;
+	} else if (player2 == 2) {
+		message.innerHTML = 'Player 2 Wins!';
+		gameState = 'start';
+		isWinner = true;
+	} else {
+		gameState = 'start';
+		ball_coord = initial_ball_coord;
+		ball.style = initial_ball.style;
+		message.innerHTML = 'Press Enter to Play Pong';
+		message.style.left = 38 + 'vw';
+	}
+	return isWinner;
+}
+
+
